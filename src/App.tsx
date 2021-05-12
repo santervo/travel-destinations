@@ -1,13 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React, {useRef, useState} from 'react';
 import {StyleSheet, ScrollView, View, Animated} from 'react-native';
 import CoverImage from './components/CoverImage';
@@ -22,8 +12,10 @@ import {TravelDestination} from './model/TravelDestination';
 import destinations from './travel-destinations';
 
 const App = () => {
+  // Current scroll position
   const y = useRef(new Animated.Value(0)).current;
 
+  // Active/open destination if any
   const [
     activeDestination,
     setActiveDestination,

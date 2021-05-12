@@ -1,3 +1,8 @@
+/**
+ * DestinationModal
+ *
+ * Modal showing destination details. Does "hero"-animation for cover image.
+ */
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Animated,
@@ -9,6 +14,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {COVER_MAX_HEIGHT} from '../constants';
 import {Measurement} from '../model/Measurement';
 import {TravelDestination} from '../model/TravelDestination';
 
@@ -28,7 +34,6 @@ const springConfig = {
 };
 
 const MAX_DY = 100;
-const COVER_HEIGHT = 300;
 
 const DestinationModal = ({destination, measurement, close}: Props) => {
   // modal position and dimensions
@@ -70,8 +75,8 @@ const DestinationModal = ({destination, measurement, close}: Props) => {
 
   // cover translation when scrolling up
   const coverTranslateY = scrollY.interpolate({
-    inputRange: [0, COVER_HEIGHT],
-    outputRange: [0, -COVER_HEIGHT],
+    inputRange: [0, COVER_MAX_HEIGHT],
+    outputRange: [0, -COVER_MAX_HEIGHT],
     extrapolate: 'clamp',
   });
 
@@ -277,11 +282,11 @@ const styles = StyleSheet.create({
   },
   cover: {
     ...StyleSheet.absoluteFillObject,
-    height: COVER_HEIGHT,
+    height: COVER_MAX_HEIGHT,
     zIndex: 1,
   },
   imageBackground: {
-    height: COVER_HEIGHT,
+    height: COVER_MAX_HEIGHT,
     padding: 20,
     justifyContent: 'flex-end',
   },
@@ -295,7 +300,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   coverPlaceHolder: {
-    height: COVER_HEIGHT,
+    height: COVER_MAX_HEIGHT,
   },
   p: {
     fontSize: 18,

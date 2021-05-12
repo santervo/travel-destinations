@@ -1,3 +1,8 @@
+/**
+ * DestinationCard
+ *
+ * Tappable card, takes measurements of image for hero-animation
+ */
 import React, {useRef} from 'react';
 import {
   ImageBackground,
